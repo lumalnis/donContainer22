@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="es-AR" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="/fragments/head :: head"></head>
+
+<body>
+    <header th:replace="/fragments/header :: header"></header>
+    <main>
+        <div th:if=${error} class="alert alert-danger alert-dismissible fade show" role="alert">
+            <span th:text="${error}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <div th:if=${success} class="alert alert-success alert-dismissible fade show" role="alert">
+            <span th:text="${success}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div class="servicios">
+            <p class="titulo">SERVICIOS</p>
+            <p class="bajada">
+                Definimos el proyecto con vos, vemos detalles de interior y exteriorlo ejecutamos,
+                ejecutamos, trasladamos e instalamos, dejamos conectado cloaca y luz, en funcionamiento... y a disfrutar!
+                Ver condiciones...</p>
+            <ul>
+                <li>
+                    <img src="/img/servicios1.png" alt="">
+                    <p class="subtitulo">Proyecto</p>
+                </li>
+                <li><img src="/img/servicios2.png" alt="">
+                    <p class="subtitulo">Ejecución</p>
+                </li>
+                <li><img src="/img/servicios3.png" alt="">
+                    <p class="subtitulo">Traslado</p>
+                </li>
+                <li><img src="/img/servicios4.png" alt="">
+                    <p class="subtitulo">Instalación</p>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="slide">
+            <img class="mySlides" src="/img/IMG-20201205-WA0001.jpg">
+            <img class="mySlides" src="/img/IMG_20210504_170917.jpg">
+            <img class="mySlides" src="/img/IMG_20210506_114529.jpg">
+            <img class="mySlides" src="/img/IMG_20210603_183951.jpg">
+        </div>
+
+
+        <div class="ventajas">
+            <ul class="ventajasText">
+                <p class="titulo">VENTAJAS</p>
+                <p class="bajada">Tanto los módulos como los containers presentan (nuestros productos presentan)
+                    millones de ventajas.Son una solucón rápida, eficaz y (la mejor relación costo-beneficio)de bajo
+                    costo.
+                    Responden a cualquier desafío arquitectonico, se adaptan a varios usos, permiten flexibilidad y
+                    personalización.
+                    Presentan la ventaja de trasladarte con tu espacio a donde quieras!
+                </p>
+            </ul>
+            <ul class="ventajasMedio">
+                <li class="subtitulo">✓ Rápida ejecución</li>
+                <li class="subtitulo">✓ Costos reducidos</li>
+                <li class="subtitulo">✓ Antisísmico</li>
+                <li class="subtitulo">✓ Aislación térmica</li>
+            </ul>
+            <ul>
+                <li class="subtitulo">✓ Materiales nobles</li>
+                <li class="subtitulo">✓ Ultra personalización</li>
+                <li class="subtitulo">✓ Inerte al paso del tiempo</li>
+                <li class="subtitulo">✓ Reubicación de bajo costo</li>
+            </ul>
+        </div>
+
+
+
+        <div class="realizados">
+            <div class="card">
+                <img src="/img/IMG_20210603_183951.jpg" alt="">
+                <div class="cardText">
+                    <h3>QUINCHO</h3>
+                    <p>Descripcion Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio cumque ipsa ut quas.
+                        Error id enim ducimus, porro eos corporis. Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit. Suscipit enim impedit autem animi nobis architecto explicabo amet, temporibus quaerat
+                        aliquid.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <button><a th:href="@{/usuario}">Administracion</a></button>
+
+    </main>
+    <footer th:replace="/fragments/footer :: footer"></footer>
+    <script th:replace="/fragments/script :: script"></script>
+    <script></script>
+
+</body>
+
+</html>

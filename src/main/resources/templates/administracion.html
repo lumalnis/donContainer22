@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="es-AR" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+    <head th:replace="/fragments/head :: head"></head>
+<body>   
+    <header th:replace="/fragments/header :: header"></header>
+    <main>
+        <div th:if=${error} class="alert alert-danger alert-dismissible fade show" role="alert">
+            <span th:text="${error}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <div th:if=${success} class="alert alert-success alert-dismissible fade show" role="alert">
+            <span th:text="${success}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <H2>ADMINISTRACION</H2>
+
+        <div th:if=${error} class="alert alert-danger alert-dismissible fade show" role="alert">
+            <span th:text="${error}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <div th:if=${success} class="alert alert-success alert-dismissible fade show" role="alert">
+            <span th:text="${success}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <div class="formulariosLogin">
+            <!--LOGUEARSE-->
+            <form th:action="@{/logincheck}" method="POST">
+                <h2>LOGIN</h2>
+                <label for="mail" class="form-label"> Mail </label>
+                <input type="text" class="form-control" th:value="${mail}" name="mail"
+                    placeholder="Ingrese nombre de mail">
+
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" name="password" placeholder="6 caracteres mínimo">
+
+                <button type="submit" class="btn btn-secondary">Entrar</button>
+            </form>
+
+            <!--REGISTRARSE-->
+            <form th:action="@{/usuario/registro}" method="POST">
+                <h2>REGISTRARSE</h2>
+
+                <label for="mail" class="form-label"> Mail </label>
+                <input type="text" class="form-control" th:value="${mail}" name="mail"
+                    placeholder="Ingrese nombre de mail">
+
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" name="password" placeholder="6 caracteres mínimo">
+
+                <label for="nombre" class="form-label">Repita contraseña</label>
+                <input type="password" class="form-control" name="password2" placeholder="Repita contraseña">
+
+                <button type="submit" class="btn btn-secondary">Registrarse</button>
+            </form>
+        </div>
+    </main>
+    <footer th:replace="/fragments/footer :: footer"></footer>
+    <script th:replace="/fragments/script :: script"></script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="es-AR" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="/fragments/head :: head"></head>
+
+<body>
+    <header th:replace="/fragments/header :: header"></header>
+    <main>
+        <div th:if=${error} class="alert alert-danger alert-dismissible fade show" role="alert">
+            <span th:text="${error}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <div th:if=${success} class="alert alert-success alert-dismissible fade show" role="alert">
+            <span th:text="${success}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <body>
+            <h1>PARA modificar Y REGRESA A listar</h1>
+
+            <form th:action="@{/proyecto/modify}" method="POST" enctype="multipart/form-data" th:object="${proyecto}">
+
+                <input hidden name="id" th:field="*{id}">
+
+                <label for="titulo">Titulo</label>
+                <input type="text" class="form-control" name="titulo" th:value="*{titulo}">
+
+                <label for="subtitulo">Subtitulo</label>
+                <input type="text" class="form-control" name="subtitulo" th:value="*{subtitulo}">
+
+                <label for="descripcion">Descripcion</label>
+                <input type="text" class="form-control" name="descripcion" th:value="*{descripcion}">
+
+                <label for="detalle">Detalle</label>
+                <input type="text" class="form-control" name="detalle">
+
+                <select class=" selectpicker scrollyou entrar" data-size="4" name="seccion">
+                    <option disabled selected>Seccion</option>
+                    <option th:each="seccion : ${T(com.Don.donContainer.enums.Seccion).values()}" th:value="${seccion}"
+                        th:text="${seccion}">
+                    </option>
+                </select>
+                <select class=" selectpicker scrollyou entrar" data-size="4" name="tipo">
+                    <option disabled selected>Tipo</option>
+                    <option th:each="tipo : ${T(com.Don.donContainer.enums.Tipo).values()}" th:value="${tipo}"
+                        th:text="${tipo}">
+                    </option>
+                </select>
+                <select class=" selectpicker scrollyou entrar" data-size="4" name="estilo">
+                    <option disabled selected>Estilo</option>
+                    <option th:each="estilo : ${T(com.Don.donContainer.enums.Estilo).values()}" th:value="${estilo}"
+                        th:text="${estilo}">
+                    </option>
+                </select>
+
+                <input type="submit" placeholder="Crear Proyecto">
+            </form>
+            <h1>modificar</h1>
+    </main>
+    <footer th:replace="/fragments/footer :: footer"></footer>
+    <script th:replace="/fragments/script :: script"></script>
+
+</body>
+
+</html>

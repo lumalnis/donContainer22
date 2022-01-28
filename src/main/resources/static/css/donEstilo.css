@@ -1,0 +1,736 @@
+/*GENERAL*/
+
+@charset "utf-8";
+
+* {
+  box-sizing: border-box;
+  list-style: none;
+  width: auto;
+  text-decoration: none;
+  color: var(--black);
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --red: #e30613;
+  --grey: #706f6f;
+  --white: #f1f1f1;
+  --Dgrey: #c8c8c8;
+  --Lgrey: #e0e0e0;
+  --black: #000;
+}
+
+body {
+  background-color: var(--white);
+  font-family: 'Lato', sans-serif;
+  position: relative;
+  width: 100vw;
+  max-width: 100%;
+}
+
+main {}
+
+/*TEXTO*/
+/*pc*/
+.titulo {
+  font-size: 60px;
+  font-weight: 600;
+  color: var(--red);
+}
+
+.subtitulo {
+  font-size: 32px;
+  font-weight: 200;
+  color: blue;
+}
+
+.bajada {
+  font-size: 24px;
+  font-weight: 300;
+  color: teal;
+}
+
+h3 {
+  font-size: 32px;
+  color: var(--red);
+  font-weight: 800;
+  padding: 1rem 0;
+}
+
+p {
+  font-size: 20px;
+  color: orange;
+}
+
+/*HEADER-NAV*/
+
+header {
+  background-color: #fff;
+  position: sticky;
+  width: 100vw;
+  max-width: 100%;
+  z-index: 500;
+  margin: 0;
+  padding: 0;
+  height: 8rem;
+  box-shadow: 0 0 5px var(--grey);
+}
+
+header nav {
+
+  display: flex;
+  justify-content: end;
+  padding-right: 2rem;
+}
+
+header ul {
+  display: flex;
+  align-items: flex-end;
+
+}
+
+.botones {
+  color: var(--grey);
+  font-size: 16px;
+  height: 2rem;
+  padding: 1rem 1.5rem 2rem 1.5rem;
+}
+
+.botones:hover {
+  background-color: var(--red);
+  border-radius: 8px 8px 0px 0px;
+  color: #fff;
+}
+
+#logo {
+  height: 5rem;
+  padding: 0 0 0 1rem;
+}
+
+#logo img {
+  height: 8rem;
+}
+
+/*FOOTER*/
+footer {
+  background-color: var(--red);
+  position: relative;
+  bottom: 0;
+  min-height: 16rem;
+  width: 100%;
+  margin-top: 2rem;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: row;
+  ;
+}
+
+.footer-item {
+  padding: 5px;
+}
+
+.footer-item img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.footer-item:nth-child(1) {
+  width: 120px;
+}
+
+.footer-item:nth-child(2) {
+  width: 40%;
+  color: var(--white);
+  font-size: medium;
+  font-weight: 300;
+  padding: 10px 30px;
+}
+
+.footer-item:nth-child(3) {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+}
+
+
+.footer-item:nth-child(4) {
+  width: 30%;
+}
+
+.redes {
+  display: flex;
+  flex-direction: column;
+  color: var(--black);
+}
+.redes p{
+  color: var(--white);
+  font-size: medium;
+}
+.redes div{
+  display: flex;
+  flex-direction: row;
+}
+
+.redes img {
+  width: 26px;
+}
+  
+.textoFooter {
+  width: 40%;
+  padding: 2rem;
+  border-left: var(--white) 3px solid;
+}
+
+.textoFooter p {
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 200;
+  line-height: 20px;
+}
+
+.redesFooter {
+  width: 60%;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+footer img {
+  width: 30px;
+}
+
+/*FOOTER*/
+
+
+/*INDEX*/
+/*SERVICIOS*/
+.servicios {
+  width: 80vw;
+  margin: 0 10vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.servicios .titulo {
+  margin: 2rem 0 0.5rem 0;
+  padding: 0;
+}
+
+.servicios .bajada {
+  max-width: 40%;
+  padding: 0.7rem 0;
+  text-align: center;
+}
+
+.servicios ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+.servicios li {
+  max-width: 320px;
+  min-width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 1rem;
+}
+
+.servicios .subtitulo {
+  text-align: center;
+  font-size: 36px;
+}
+
+.servicios img {
+  object-fit: cover;
+  width: 100%;
+}
+
+/*SERVICIOS*/
+
+/*SLIDE INSPIRATE INDEX*/
+.slide {
+  height: 400px;
+  width: 80vw;
+  margin: 6rem 10vw;
+}
+
+.slide img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/*SLIDE INSPIRATE INDEX*/
+
+/*VENTAJAS*/
+.ventajas {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  margin: 0 5vw;
+  padding: 0;
+}
+
+.ventajasText {
+  max-width: 360px;
+  min-width: 340px;
+}
+
+.ventajas .bajada {
+  padding: 0.7 0rem;
+}
+
+.ventajas ul {
+  width: max-content;
+}
+
+.ventajas li {
+  padding: 0.7rem 0;
+}
+
+.ventajasMedio {
+  margin: 0 3rem;
+}
+
+/*VENTAJAS*/
+
+/*REALIZADOS*/
+.realizados {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.card {
+  min-width: 20rem;
+  max-width: 28rem;
+  height: 550px;
+  margin: 3rem;
+  box-shadow: 5px 10px 12px var(--grey);
+  border-radius: 50px;
+  background-color: white;
+}
+
+.cardText {
+  padding: 0 2rem;
+  color: var(--white);
+}
+
+.cardText p {
+  padding: 0 0 0.5rem;
+}
+
+.card img {
+  min-width: 20rem;
+  max-width: 28rem;
+}
+
+/*REALIZADOS*/
+/*INDEX*/
+
+/*PRODUCTOS*/
+/*.productos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.producto {
+  height: 700px;
+  width: 500px;
+  margin: 1rem;
+  margin-top: 4rem;
+  box-shadow: 5px 10px 12px var(--grey);
+  background-color: white;
+  border-radius: 50px;
+}
+
+.producto img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50px 50px 0 0;
+}*/
+.productos {}
+
+.producto {
+  width: 100%;
+  height: fit-content;
+  max-height: 400px;
+  display: flex;
+  flex-direction: row;
+  margin: 0 0 2rem 0;
+
+  box-shadow: 0 0 5px var(--grey);
+}
+
+#second {
+  flex-direction: row-reverse;
+}
+
+.producto img {
+  max-width: 55%;
+  object-fit: cover;
+  justify-content: center;
+  align-content: center;
+}
+
+.productoText {
+  display: flex;
+  flex-direction: column;
+  max-width: 35%;
+  padding: 0 1.5rem;
+}
+
+.contenedor {
+  padding: 3rem;
+  width: 90vw;
+  margin: 2rem 5vw 4rem;
+  justify-content: center;
+}
+
+.filtros ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.filtros label {
+  font-size: 24px;
+  font-weight: 300;
+  margin-right: 1.5rem;
+}
+
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: var(--white);
+  border: 3px solid var(--red);
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input~.checkmark {
+  background-color: var(--red);
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked~.checkmark {
+  background-color: var(--red);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked~.checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+  top: 6px;
+  left: 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+}
+
+.proyectos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.proyecto {
+  min-width: 280px;
+  max-width: 320px;
+  min-height: 200px;
+  max-height: 220px;
+  margin: 0.5rem;
+  background-color: yellow;
+}
+
+.proyecto p {
+  padding: 0.2rem 0.7rem;
+}
+
+.proyectos img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/*PRODUCTOS*/
+
+/*CONTACTO*/
+.contacto {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background-color: var(--red);
+}
+
+.datos {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 1px 1px 5px var(--grey);
+  margin-right: 2rem;
+}
+
+.mensaje {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  justify-content: end;
+  box-shadow: 1px 1px 5px var(--grey);
+}
+
+.contacto label {
+  color: var(--grey);
+}
+
+.contacto input, textarea {
+  margin-bottom: 1rem;
+  width: 312px;
+  height: 30px;
+  margin-top: 5px;
+  background-color: var(--white);
+  border-radius: 5px;
+  border-style: solid;
+  border: 3px;
+}
+
+.contacto h3 {
+  margin-bottom: 30px;
+}
+
+#mensaje {
+  height: 300px;
+  padding: 0.5rem;
+}
+
+#submitM {
+  background-color: var(--grey);
+  color: #fff;
+  height: 40px;
+  width: 150px;
+  align-self: flex-end;
+  border: 3px solid var(--grey);
+  border-radius: 8px;
+}
+
+#submitM:hover {
+  background-color: var(--red);
+  border: var(--red);
+}
+
+.frecuentes {
+  width: 100%;
+  padding: 2rem;
+  padding-left: 10rem;
+  margin: 4rem 0;
+}
+
+.qa {
+  margin-bottom: 2rem;
+}
+
+.qa :first-child {
+  margin-top: 1rem;
+}
+
+.ask {
+  width: fit-content;
+  max-width: 70%;
+  background-color: var(--Dgrey);
+  padding: 0.5rem 2rem 0.5rem 1rem;
+  border-radius: 10px 10px 0 10px;
+  color: var(--black);
+  font-size: 16px;
+  box-shadow: 1px 1px 2px var(--Lgrey);
+}
+
+.answer {
+  width: fit-content;
+  max-width: 70%;
+  background-color: var(--Lgrey);
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  margin-left: 5rem;
+  border-radius: 0 10px 10px 3rem;
+  color: var(--black);
+  font-size: 16px;
+  box-shadow: 1px 1px 2px var(--Lgrey);
+}
+
+/*CONTACTO*/
+
+/*ALQUILER*/
+/*Uso lo de .productos .producto .productoText */
+.available {
+  width: fit-content;
+  padding: 0.5rem;
+  color: var(--white);
+  background-color: var(--red);
+  font-size: 24px;
+  font-size: medium;
+  margin-top: 3rem;
+}
+
+#noavailable {
+  background-color: var(--grey);
+}
+
+/*ALQUILER*/
+
+/*INSPIRATE*/
+.inspirate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inspirateText {
+  display: flex;
+  width: 100%;
+  padding: 0 5%;
+  justify-content: center;
+  min-height: 250px;
+  max-height: 450px;
+}
+
+.inspirateImg {
+  min-width: 350px;
+  max-width: 650px;
+}
+
+.inspirateText img {
+  width: 100%;
+  object-fit: cover;
+
+}
+
+.inspirateText p {
+  min-width: 300px;
+  padding: 1rem 1rem 1rem 0;
+  line-height: 26px;
+}
+
+.presentamos {
+  display: flex;
+  padding: 0 5rem;
+  margin: 4rem 0;
+}
+
+.presentamosImg {
+  max-width: 700px;
+  max-height: 480px;
+  ;
+}
+
+.presentamos img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.presentamos p {
+  max-width: 1010px;
+  padding: 3rem 2rem;
+  background-color: var(--red);
+  line-height: 32px;
+}
+
+.metros {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.metrosC {
+  max-width: 300px;
+  min-width: 250px;
+  box-shadow: 1px 2px 3px var(--Dgrey);
+}
+
+.metrosC img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+
+.slideI {
+  width: 800px;
+  height: 260px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.slideI img {
+  height: 100%;
+  width: 300%;
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: slideshows 10s linear infinite;
+}
+
+@keyframes slideshows {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: -200%;
+  }
+}
+
+/*INSPIRATE*/
+/*USUARIO*/

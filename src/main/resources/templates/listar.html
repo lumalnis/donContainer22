@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html lang="es-AR" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="/fragments/head :: head"></head>
+
+<body>
+    <header th:replace="/fragments/header :: header"></header>
+    <main>
+        <div th:if=${error} class="alert alert-danger alert-dismissible fade show" role="alert">
+            <span th:text="${error}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <div th:if=${success} class="alert alert-success alert-dismissible fade show" role="alert">
+            <span th:text="${success}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <nav>
+            <button><a th:href="@{/usuario}">Login</a></button>
+
+            <button><a th:href="@{/proyecto/form}">Crear Proyecto</a></button>
+
+            <button><a th:href="@{/proyecto/listar}">Listar Proyectos</a></button>
+
+        </nav>
+
+        <div th:if=${error} class="alert alert-danger alert-dismissible fade show" role="alert">
+            <span th:text="${error}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <div th:if=${success} class="alert alert-success alert-dismissible fade show" role="alert">
+            <span th:text="${success}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <h1>LISTA DE PROYECTOS Y BOTON CREAR y BOTON MODIFICAR EN LAS LISTAS</h1>
+
+        <div class="listados">
+            <h3>Alquiler</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Titulo</th>
+                        <th>Descripcion</th>
+                        <th>Foto</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <p th:if="${#lists.isEmpty(alquileres)}">No hay alquileres para mostrar</p>
+                    <tr th:each=" p,iterator : ${alquileres}">
+                        <td th:text="${iterator.index+1}"></td>
+                        <td th:text="${p.titulo}"></td>
+                        <td th:text="${p.descripcion}"></td>
+                        <td><img th:src="@{/foto/proyecto/} + ${p.id}" alt="" class="img-fluid w-50" height="50px"
+                                width="50px"></td>
+                        <td>
+                            <button class="btn btn-secondary"><a
+                                    th:href="@{/proyecto/form} + '?id=' + ${p.id}">Editar</a></button>
+                            <button class="btn btn-secondary"><a
+                                    th:href="@{/proyecto/delete} + '?id=' + ${p.id}">Eliminar</a></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="listados">
+            <h3>Inspirate</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Titulo</th>
+                        <th>Descripcion</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <p th:if="${#lists.isEmpty(inspiraciones)}">No hay inspiraciones para mostrar</p>
+                    <tr th:each=" p,iterator : ${inspiraciones}">
+                        <td th:text="${iterator.index+1}"></td>
+                        <td th:text="${p.titulo}"></td>
+                        <td th:text="${p.descripcion}"></td>
+                        <td>
+                            <button class="btn btn-secondary"><a
+                                    th:href="@{/proyecto/form} + '?id=' + ${p.id}">Editar</a></button>
+                            <button class="btn btn-secondary"><a
+                                    th:href="@{/proyecto/delete} + '?id=' + ${p.id}">Eliminar</a></button>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+
+        <div class="listados">
+            <h3>Proyectos Realizados</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Titulo</th>
+                        <th>Descripcion</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <p th:if="${#lists.isEmpty(realizados)}">No hay proyectos para mostrar</p>
+                    <tr th:each=" p,iterator : ${realizados}">
+                        <td th:text="${iterator.index+1}"></td>
+                        <td th:text="${p.titulo}"></td>
+                        <td th:text="${p.descripcion}"></td>
+                        <td>
+                            <button class="btn btn-secondary"><a
+                                    th:href="@{/proyecto/form} + '?id=' + ${p.id}">Editar</a></button>
+                            <button class="btn btn-secondary"><a
+                                    th:href="@{/proyecto/delete} + '?id=' + ${p.id}">Eliminar</a></button>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </main>
+    <footer th:replace="/fragments/footer :: footer"></footer>
+    <script th:replace="/fragments/script :: script"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="es-AR" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="/fragments/head :: head"></head>
+
+<body>
+    <header th:replace="/fragments/header :: header"></header>
+    <main>
+        <div th:if=${error} class="alert alert-danger alert-dismissible fade show" role="alert">
+            <span th:text="${error}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <div th:if=${success} class="alert alert-success alert-dismissible fade show" role="alert">
+            <span th:text="${success}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div class="inspirate">
+            <p class="subtitulo">Contrucción Inteligente</p>
+            <p class="bajada">CONSTRUCCION MODULAR</p>
+            <div class="inspirateText">
+                <p>
+                    Una solución rápida, eficaz y adaptable con la que podes crear el proyecto que necesites. Casas,
+                    oficinas, escuelas, hospitales, hoteles o lo que pida tu imaginación.<br>
+                    Gracias a esta técnica
+                    podes armar, desarmar, ampliar facilmente o mudarte sin problemas. Resistentes al paso del tiempo,
+                    con fantástica aislación y antisismicos.<br>
+                    Al producto lo realizamos en taller y lo dejamos instalado listo para lsu uso, es habitat al
+                    instante.
+                </p>
+                <img class="inspirateImg" src="/img/IMG_20210506_114529.jpg" alt="">
+            </div>
+
+            <div class="presentamos">
+                <div>
+                    <div class="subtitulo">Te presentamos nuestros modulos </div>
+                    <img src="/img/IMG-20201205-WA0001.jpg" alt="" class="presentamosImg">
+                </div>
+                <div>
+                    <p>_ Estructura de acero, con paneles tipo sandwich, doble cara de chapa pintada con núcleo de
+                        proliuterano expandido.<br>
+                        _ La terminación exterior como interior puede ser con color de panel a elección, siding,
+                        revestimiento o pintura.<br>
+                        _Carpintería de aluminio a medida.<br>
+                        _Iluminación embutida o a vista.<br>
+                        _Conexiones de agua y cloaca.<br>
+                        _Muebles de cocina a medida.<br>
+                        _Tamaños estándar de 3x6 y multiplos o a medida.
+                    </p>
+                </div>
+            </div>
+
+            <div class="metros">
+                <img src="/img/36m2.png" alt="" class="metrosC">
+                <div class="slideI">
+                    <img class="mySlides" src="/img/36m2Fotos.png">
+                </div>
+            </div>
+
+
+        </div>
+    </main>
+    <footer th:replace="/fragments/footer :: footer"></footer>
+    <script th:replace="/fragments/script :: script"></script>
+    <script></script>
+
+</body>
+
+</html>

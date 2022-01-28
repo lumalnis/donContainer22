@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html lang="es-AR" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="/fragments/head :: head"></head>
+
+<body>
+    <header th:replace="/fragments/header :: header"></header>
+    <main>
+        <div th:if=${error} class="alert alert-danger alert-dismissible fade show" role="alert">
+            <span th:text="${error}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <div th:if=${success} class="alert alert-success alert-dismissible fade show" role="alert">
+            <span th:text="${success}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <ul class="productos">
+            <li class="producto"><img src="/img/san-carlos-1.png" alt="">
+                <!--SLIDES DE 3 IMAGENES CADA UNO-->
+                <div class="productoText">
+                    <h3>Container Habitacional</h3>
+                    <p class="bajada">
+                        Estructura con base de container marítimo.
+                        <br>
+                        Aislación de polietileno 40mm y revestimiento mdf de 5,5.
+                        <br>
+                        Cielorraso desmontable.
+                        <br>
+                        Pisos vinílico o pintado o solados enmaderados.
+                        <br>
+                        Aberturas de aluminio.
+                        <br>
+                        Instalación eléctrica vista o embutida.
+                    </p>
+                </div>
+            </li>
+            <li class="producto" id="second">
+                <img src="/img/cabanaSoledad.jpg" alt="">
+                <div class="productoText">
+                    <h3>Modulo Habitacional</h3>
+                    <p class="bajada">
+                        Unidad auto-portante.
+                        <br>
+                        Base exterior estándar de 3x6 o múltiplos y/o de acuerdo a su proyecto.
+                        <br>
+                        Compuestos por paneles sándwich de 60 mm de aislación de poliuretano.
+                        <br>
+                        Techadas en panel sándwich 50/80 poliuretano.
+                        <br>
+                        Pisos solados enmaderados.
+                        <br>
+                        Abertura de aluminio.
+                        <br>
+                        Con instalación eléctrica exterior o embutida.
+                    </p>
+                </div>
+            </li>
+            <li class="producto"><img src="/img/container-maritimo-1.png" alt="">
+                <div class="productoText">
+                    <h3>Container Maritimo</h3>
+                    <p class="bajada">
+                        Recipientes de carga de 20 o 40 pies de largo, estándar o HQ. Sin intervención.
+                        <br>
+                        Para uso de depósito o base para proyecto.
+                        <br>
+                        Reefer sin equipo o con equipos.
+
+                    </p>
+                </div>
+            </li>
+        </ul>
+
+        <div class="contenedor">
+            <div class="filtros">
+                <ul>
+                    <label class="container">Todos
+                        <input type="radio" checked="checked" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Otros
+                        <input type="radio" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                </ul>
+            </div>
+            <div class="proyectos">
+                <div class="proyecto">
+                    <img src="/img/IMG_20210603_183951.jpg" alt="">
+                    <p class="bajada">Titulo</p>
+                </div>
+                <div class="proyecto">
+                    <img src="/img/IMG_20210603_183951.jpg" alt="">
+                    <p class="bajada">Titulo</p>
+                </div>
+                <div class="proyecto">
+                    <img src="/img/IMG_20210603_183951.jpg" alt="">
+                    <p class="bajada">Titulo</p>
+                </div>
+                <div class="proyecto">
+                    <img src="/img/IMG_20210603_183951.jpg" alt="">
+                    <p class="bajada">Titulo</p>
+                </div>
+            </div>
+
+
+    </main>
+    <footer th:replace="/fragments/footer :: footer"></footer>
+    <script th:replace="/fragments/script :: script"></script>
+    <script></script>
+
+</body>
+
+</html>

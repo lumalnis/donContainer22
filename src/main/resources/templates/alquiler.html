@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="es-AR" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="/fragments/head :: head"></head>
+
+<body>
+    <header th:replace="/fragments/header :: header"></header>
+    <main>
+        <div th:if=${error} class="alert alert-danger alert-dismissible fade show" role="alert">
+            <span th:text="${error}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <div th:if=${success} class="alert alert-success alert-dismissible fade show" role="alert">
+            <span th:text="${success}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <ul class="productos">
+            <li class="producto"><img src="/img/cabanaSoledad.jpg" alt="">
+                <!--SLIDES DE 3 IMAGENES CADA UNO-->
+                <div class="productoText">
+                    <h3>Container Habitacional</h3>
+                    <p class="bajada">DETALLES
+                        Estructura con base de container marítimo.
+                        Aislación de polietileno 40mm y revestimiento mdf de 5,5.
+                        Instalación eléctrica embutida.
+                        Aberturas de aluminio con pre-marco y rejas incluidas.
+                        Cielorraso desmontable, piso vinílico y/o pintado.
+                        Aire frío/calor.</p>
+                    <!--SI ESTA DISPONIBLE CAMBIA. POR DEFECTO NO DISPONIBLE
+                    <div class="available" th:if="${available} == true">Disponible</div>
+                <div class="available" id="noavailable" th:unless="${available} == false">Alquilado</> -->
+                    <p class="available">Disponible</p>
+                    <p class="available" id="noavailable">Alquilado</p>
+                </div>
+            </li>
+        </ul>
+    </main>
+    <footer th:replace="/fragments/footer :: footer"></footer>
+    <script th:replace="/fragments/script :: script"></script>
+    <script></script>
+
+</body>
+
+</html>

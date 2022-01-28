@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="es-AR" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="/fragments/head :: head"></head>
+
+<body>
+    <header th:replace="/fragments/header :: header"></header>
+    <main>
+        <div th:if=${error} class="alert alert-danger alert-dismissible fade show" role="alert">
+            <span th:text="${error}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <div th:if=${success} class="alert alert-success alert-dismissible fade show" role="alert">
+            <span th:text="${success}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <form class="contacto">
+            <div class="datos">
+                <h3>¿En que podemos ayudarte?</h3>
+                <label for="name">Nombre y Apellido</label>
+                <input type="text">
+
+                <label for="email">Mail</label>
+                <input type="email" placeholder=" doncontainer@gmail.com" name="" id="">
+                <label for="tel">Telefono</label>
+                <input type="tel" placeholder=" +549 261 5172544">
+                <label for="city">Localidad</label>
+                <input type="text" placeholder=" Mendoza">
+            </div>
+            <div class="mensaje">
+                <label for="message">Mensaje</label>
+                <textarea id="mensaje" type="text" name=""
+                    placeholder="Contanos tus dudas, consultas o pedinos un presupuesto."></textarea>
+                <input type="submit" id="submitM">
+            </div>
+        </form>
+        <div class="frecuentes">
+            <h3>Preguntas Frecuentes</h3>
+            <div class="qa">
+                <p class="ask">¿Envian a todo el país?</p>
+                <p class="answer">Llevamos e instalamos tu proyecto a donde necesites.</p>
+            </div>
+
+            <div class="qa">
+                <p class="ask">¿?</p>
+                <p class="answer">of course! she is the super star malsmlskdosmlf slkjfes.</p>
+            </div>
+            <div class="qa">
+                <p class="ask">¿Rocio es tonta?</p>
+                <p class="answer">Si lo es.</p>
+            </div>
+
+            <div class="qa">
+                <p class="ask">¿Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab sunt debitis aliquid repellat!?</p>
+                <p class="answer">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro beatae veritatis quas at soluta libero a reiciendis ipsam! Repellat enim dignissimos quia earum aliquid possimus quibusdam placeat.</p>
+            </div>
+
+
+        </div>
+
+
+
+    </main>
+    <footer th:replace="/fragments/footer :: footer"></footer>
+    <script th:replace="/fragments/script :: script"></script>
+    <script></script>
+
+</body>
+
+</html>
