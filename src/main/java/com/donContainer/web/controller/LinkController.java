@@ -2,6 +2,7 @@ package com.donContainer.web.controller;
 
 import com.donContainer.web.dto.LinkDTO;
 import com.donContainer.web.dto.ProyectDTO;
+import com.donContainer.web.model.Link;
 import com.donContainer.web.service.ILinkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,16 +18,16 @@ public class LinkController {
     @Autowired
     private ILinkService linkService;
 
-    @GetMapping("/proyect/{idProyect}")
+    @GetMapping
+    public ResponseEntity<List<LinkDTO>> getAll (){
+       List<LinkDTO> allLinks = linkService.findAll();
+                return ResponseEntity.status(HttpStatus.OK).body(allLinks);
+    }
+
+        @GetMapping("/proyect/{idProyect}")
     public ResponseEntity<List<LinkDTO>> getAllByProyect(@PathVariable Long idProyect) {
         List<LinkDTO> allLinksByProyects = linkService.getAllByProyect(idProyect);
         return ResponseEntity.status(HttpStatus.OK).body(allLinksByProyects);
-    }
-
-    @GetMapping
-    public ResponseEntity<List<LinkDTO>> getAll() {
-        List<LinkDTO> allLink = linkService.getAll();
-        return ResponseEntity.status(HttpStatus.OK).body(allLink);
     }
 
     @PostMapping

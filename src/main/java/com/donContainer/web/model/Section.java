@@ -15,15 +15,15 @@ public class Section {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    //SECCION PAGINA
-    private String Section;
+    //SECCION PAGINA (ALQUILER INSPIRACION PROYECTO)
+    private String name;
 
-    @ManyToOne (fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
-    @JoinColumn (name = "proyecto_id", insertable = false, updatable = false)
-    private Proyect proyecto;
-
-    @Column (name = "proyecto_id", nullable = false)
-    private Long proyectoId;
+//    @ManyToOne (fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
+//    @JoinColumn (name = "proyecto_id", insertable = false, updatable = false)
+//    private Proyect proyecto;
+//
+//    @Column (name = "proyecto_id", nullable = false)
+//    private Long proyectoId;
 
 
 }

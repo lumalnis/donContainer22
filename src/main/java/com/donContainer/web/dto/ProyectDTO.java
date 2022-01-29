@@ -1,8 +1,12 @@
 package com.donContainer.web.dto;
 
 
+import com.donContainer.web.model.Link;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -17,4 +21,5 @@ public class ProyectDTO {
     private String descripcion;
 
     private String detalle;
+
 }

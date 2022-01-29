@@ -33,6 +33,13 @@ public class Proyect {
 
     private String detalle;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "section", insertable = false, updatable = false)
+    private Section section;
+
+    @Column(name = "section_id", nullable = false)
+    private Long sectionId;
+
     @Column(name = "timestamp")
     @CreationTimestamp
     private Timestamp timeStamp;

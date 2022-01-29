@@ -2,6 +2,7 @@ package com.donContainer.web.controller;
 
 import com.donContainer.web.dto.ProyectDTO;
 import com.donContainer.web.service.IProyectService;
+import com.fasterxml.jackson.databind.introspect.TypeResolutionContext.Empty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
@@ -32,8 +33,8 @@ public class ProyectController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> remove(@PathVariable Long id) {
+    public ResponseEntity<Empty> remove(@PathVariable Long id) {
         proyectService.remove(id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

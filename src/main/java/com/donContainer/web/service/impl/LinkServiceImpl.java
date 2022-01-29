@@ -1,7 +1,9 @@
 package com.donContainer.web.service.impl;
 
 import com.donContainer.web.dto.LinkDTO;
+import com.donContainer.web.dto.ProyectDTO;
 import com.donContainer.web.mapper.LinkMapper;
+import com.donContainer.web.mapper.ProyectMapper;
 import com.donContainer.web.model.Link;
 import com.donContainer.web.repository.LinkRepository;
 import com.donContainer.web.service.ILinkService;
@@ -24,8 +26,10 @@ public class LinkServiceImpl implements ILinkService {
     @Autowired
     private LinkMapper linkMapper;
 
-    private final String ORGANIZATION_NOT_FOUND_MESSAGE = "El link no existe";
+    @Autowired
+    private ProyectMapper proyectMapper;
 
+    private final String ORGANIZATION_NOT_FOUND_MESSAGE = "El link no existe";
 
     @Override
     public LinkDTO save(LinkDTO dto) {
@@ -35,7 +39,12 @@ public class LinkServiceImpl implements ILinkService {
         return linkResult;
     }
 
-    @Override
+    public List<LinkDTO> findAll() {
+        List<Link> links = linkRepository.findAll();
+        List<LinkDTO> dtos = linkMapper.linksEntity2Dto(links);
+        return dtos;
+    }
+
     public List<LinkDTO> getAllByProyect(Long proyectId) {
         List<Link> links = linkRepository.findAll();
         List<Link> linksByProyect = links.stream().filter(l -> l.getProyectId() == proyectId).collect(Collectors.toList());
@@ -43,12 +52,15 @@ public class LinkServiceImpl implements ILinkService {
         return linksResult;
     }
 
-    @Override
-    public List<LinkDTO> getAll() {
-        List<Link> linksEntities = linkRepository.findAll();
-        List<LinkDTO> linkDTOS = linkMapper.linksEntity2Dto(linksEntities);
-        return linkDTOS;
+    public void removeFromProyect(Long proyectId) {
+        List<Link> links = linkRepository.findAll();
+        List<Link> linksByProyect = links.stream().filter(l -> l.getProyectId() == proyectId).collect(Collectors.toList());
+        for (Link link : linksByProyect
+        ) {
+            remove(link.getId());
+        }
     }
+
 
     @Override
     public LinkDTO update(Long id, LinkDTO dto) {

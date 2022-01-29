@@ -1,11 +1,15 @@
 package com.donContainer.web.mapper;
 
+import com.donContainer.web.dto.LinkDTO;
 import com.donContainer.web.dto.ProyectDTO;
 import com.donContainer.web.model.Proyect;
+import com.donContainer.web.repository.ProyectRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class ProyectMapper {
@@ -46,4 +50,6 @@ public class ProyectMapper {
         }
         return proyectsDTOS;
     }
+
+
 }
