@@ -11,7 +11,7 @@ public interface IProyectService {
 
     List<ProyectDTO> getAll ();
 
-    ProyectDTO update (ProyectDTO dto);
+    ProyectDTO update (Long id, ProyectDTO dto);
 
     void remove (Long id);
 

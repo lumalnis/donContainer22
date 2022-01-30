@@ -24,7 +24,7 @@ public class LinkController {
                 return ResponseEntity.status(HttpStatus.OK).body(allLinks);
     }
 
-        @GetMapping("/proyect/{idProyect}")
+    @GetMapping("/proyect/{idProyect}")
     public ResponseEntity<List<LinkDTO>> getAllByProyect(@PathVariable Long idProyect) {
         List<LinkDTO> allLinksByProyects = linkService.getAllByProyect(idProyect);
         return ResponseEntity.status(HttpStatus.OK).body(allLinksByProyects);

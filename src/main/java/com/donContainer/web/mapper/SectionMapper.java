@@ -1,6 +1,8 @@
 package com.donContainer.web.mapper;
 
+import com.donContainer.web.dto.LinkDTO;
 import com.donContainer.web.dto.SectionDTO;
+import com.donContainer.web.model.Link;
 import com.donContainer.web.model.Section;
 import org.springframework.stereotype.Component;
 
@@ -39,5 +41,10 @@ public class SectionMapper {
             SectionsDTOS.add(SectionEntity2Dto(entity));
         }
         return SectionsDTOS;
+    }
+
+    public Section section2Update(Section section4Update, SectionDTO dto) {
+        section4Update.setName(dto.getName());
+        return section4Update;
     }
 }

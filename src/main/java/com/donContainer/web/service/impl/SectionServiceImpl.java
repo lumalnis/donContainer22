@@ -8,7 +8,9 @@ import com.donContainer.web.service.ISectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SectionServiceImpl implements ISectionService {
@@ -19,6 +21,8 @@ public class SectionServiceImpl implements ISectionService {
     @Autowired
     private SectionMapper sectionMapper;
 
+    private final String SECTION_NOT_FOUND_MESSAGE = "La sección no existe";
+
     @Override
     public SectionDTO save(SectionDTO dto) {
         Section sectionEntity = sectionMapper.SectionDto2Entity(dto);
@@ -28,8 +32,14 @@ public class SectionServiceImpl implements ISectionService {
     }
 
     @Override
-    public SectionDTO update() {
-        return null;
+    public SectionDTO update(Long id, SectionDTO dto) {
+        Optional<Section> optional = sectionRepository.findById(id);
+        if (optional.isPresent()) {
+            Section sectionUpdated = sectionMapper.section2Update(optional.get(), dto);
+            sectionRepository.save(sectionUpdated);
+            SectionDTO sectionResult = sectionMapper.SectionEntity2Dto(sectionUpdated);
+            return sectionResult;
+        } else throw new EntityNotFoundException(SECTION_NOT_FOUND_MESSAGE);
     }
 
     @Override
@@ -46,8 +56,9 @@ public class SectionServiceImpl implements ISectionService {
         return sectionDTO;
     }
 
+    //Not Soft, just Hard Delete
     @Override
-    public void remove(Long id) {
-
+    public void delete(Long id) {
+        sectionRepository.deleteById(id);
     }
 }

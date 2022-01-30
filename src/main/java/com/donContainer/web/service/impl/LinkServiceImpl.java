@@ -29,7 +29,7 @@ public class LinkServiceImpl implements ILinkService {
     @Autowired
     private ProyectMapper proyectMapper;
 
-    private final String ORGANIZATION_NOT_FOUND_MESSAGE = "El link no existe";
+    private final String LINK_NOT_FOUND_MESSAGE = "El link no existe";
 
     @Override
     public LinkDTO save(LinkDTO dto) {
@@ -61,7 +61,6 @@ public class LinkServiceImpl implements ILinkService {
         }
     }
 
-
     @Override
     public LinkDTO update(Long id, LinkDTO dto) {
         Optional<Link> optional = linkRepository.findById(id);
@@ -70,7 +69,7 @@ public class LinkServiceImpl implements ILinkService {
             linkRepository.save(linkUpdated);
             LinkDTO linkResult = linkMapper.linkEntity2Dto(linkUpdated);
             return linkResult;
-        } else throw new EntityNotFoundException(ORGANIZATION_NOT_FOUND_MESSAGE);
+        } else throw new EntityNotFoundException(LINK_NOT_FOUND_MESSAGE);
     }
 
     @Override

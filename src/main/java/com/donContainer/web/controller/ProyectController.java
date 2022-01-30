@@ -32,6 +32,13 @@ public class ProyectController {
         return ResponseEntity.status(HttpStatus.CREATED).body(proyectSaved);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<ProyectDTO> update(@PathVariable Long id, @RequestBody ProyectDTO dto) {
+        ProyectDTO proyectUpdated = proyectService.update(id, dto);
+        return ResponseEntity.status(HttpStatus.OK).body(proyectUpdated);
+    }
+
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Empty> remove(@PathVariable Long id) {
         proyectService.remove(id);

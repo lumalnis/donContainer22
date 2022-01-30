@@ -2,6 +2,7 @@ package com.donContainer.web.mapper;
 
 import com.donContainer.web.dto.LinkDTO;
 import com.donContainer.web.dto.ProyectDTO;
+import com.donContainer.web.model.Link;
 import com.donContainer.web.model.Proyect;
 import com.donContainer.web.repository.ProyectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,5 +52,12 @@ public class ProyectMapper {
         return proyectsDTOS;
     }
 
-
+    public Proyect proyect2Update(Proyect proyect4Update, ProyectDTO dto) {
+        proyect4Update.setTitulo(dto.getTitulo());
+        proyect4Update.setSubtitulo(dto.getSubtitulo());
+        proyect4Update.setDescripcion(dto.getDescripcion());
+        proyect4Update.setDetalle(dto.getDetalle());
+        proyect4Update.setSectionId(dto.getSectionId());
+        return proyect4Update;
+    }
 }

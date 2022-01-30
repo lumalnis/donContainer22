@@ -8,11 +8,11 @@ public interface ISectionService {
 
     SectionDTO save(SectionDTO dto);
 
-    SectionDTO update();
+    SectionDTO update(Long id, SectionDTO dto);
 
     List<SectionDTO> getAll();
 
     SectionDTO getById(Long id);
 
-    void remove(Long id);
+    void delete(Long id);
 }

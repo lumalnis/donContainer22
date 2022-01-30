@@ -22,4 +22,6 @@ public class ProyectDTO {
 
     private String detalle;
 
+    private Long sectionId;
+
 }

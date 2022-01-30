@@ -10,8 +10,10 @@ import com.donContainer.web.service.IProyectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProyectServiceImpl implements IProyectService {
@@ -25,6 +27,7 @@ public class ProyectServiceImpl implements IProyectService {
     @Autowired
     private ILinkService linkService;
 
+    private final String PROYECT_NOT_FOUND_MESSAGE = "El proyecto no existe";
 
     public ProyectDTO save(ProyectDTO dto) {
 
@@ -42,19 +45,23 @@ public class ProyectServiceImpl implements IProyectService {
         return proyectDTOS;
     }
 
-    public ProyectDTO update(ProyectDTO dto) {
-        return new ProyectDTO();
+    public ProyectDTO update(Long id, ProyectDTO dto) {
+        Optional<Proyect> optional = proyectRepository.findById(id);
+        if (optional.isPresent()) {
+            Proyect proyectUpdated = proyectMapper.proyect2Update(optional.get(), dto);
+            proyectRepository.save(proyectUpdated);
+            ProyectDTO proyectResult = proyectMapper.proyectEntity2Dto(proyectUpdated);
+            return proyectResult;
+        } else throw new EntityNotFoundException(PROYECT_NOT_FOUND_MESSAGE);
     }
 
     public void remove(Long id) {
         removeLists(id);
         proyectRepository.deleteById(id);
-
     }
 
     public void removeLists(Long id) {
         linkService.removeFromProyect(id);
-
     }
 
 
