@@ -10,7 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "types")
+@Table(name = "type")
 public class Type {
 
     @Id
@@ -18,13 +18,13 @@ public class Type {
     private Long id;
 
     //CONTAINER O MODULO?
-    private String Type;
+    private String name;
 
-    @ManyToOne(fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
-    @JoinColumn (name = "proyecto_id", insertable = false, updatable = false)
-    private Proyect proyecto;
-
-    @Column (name = "proyecto_id", nullable = false)
-    private Long proyectoId;
+//    @ManyToOne(fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
+//    @JoinColumn (name = "proyecto_id", insertable = false, updatable = false)
+//    private Proyect proyecto;
+//
+//    @Column (name = "proyecto_id", nullable = false)
+//    private Long proyectoId;
 
 }

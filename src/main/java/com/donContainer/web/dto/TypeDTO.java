@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class StyleDTO {
+public class TypeDTO {
 
     private Long id;
     private String name;

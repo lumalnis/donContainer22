@@ -12,7 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "slides")
+@Table(name = "slide")
 public class Slide {
 
     @Id
@@ -34,3 +34,6 @@ public class Slide {
     @Column(name = "proyect_id", nullable = false)
     private Long proyectId;
 }
+
+
+
