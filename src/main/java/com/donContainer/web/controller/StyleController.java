@@ -41,8 +41,8 @@ public class StyleController {
         return ResponseEntity.status(HttpStatus.OK).body(styleUpdated);
     }
 
-    @DeleteMapping("/{id")
-    public ResponseEntity<Empty> delete(Long id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Empty> delete(@PathVariable Long id) {
         styleService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

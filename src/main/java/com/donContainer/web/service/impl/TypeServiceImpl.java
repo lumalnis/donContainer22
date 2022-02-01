@@ -22,6 +22,7 @@ public class TypeServiceImpl implements ITypeService {
     private TypeMapper typeMapper;
 
     private final String TYPE_NOT_FOUND_MESSAGE = "El tipo no existe";
+    private final String TYPES_NOT_EXIST = "No existen tipos";
 
     @Override
     public TypeDTO save(TypeDTO dto) {
@@ -44,14 +45,25 @@ public class TypeServiceImpl implements ITypeService {
 
     @Override
     public List<TypeDTO> getAll() {
+        if ((typeRepository.findAll()).isEmpty()) {
+            throw new EntityNotFoundException(TYPES_NOT_EXIST);
+        }
         List<Type> typeList = typeRepository.findAll();
         List<TypeDTO> typeDTOS = typeMapper.typesEntity2Dto(typeList);
         return typeDTOS;
     }
 
     @Override
+    public Type getTypeById(Long id) {
+        if (!typeRepository.existsById(id)) {
+            throw new EntityNotFoundException(TYPE_NOT_FOUND_MESSAGE);
+        }
+        return typeRepository.getById(id);
+    }
+
+    @Override
     public TypeDTO getById(Long id) {
-        Type typeEntity = typeRepository.getById(id);
+        Type typeEntity = getTypeById(id);
         TypeDTO typeDTO = typeMapper.typeEntity2Dto(typeEntity);
         return typeDTO;
     }
@@ -59,6 +71,12 @@ public class TypeServiceImpl implements ITypeService {
     //Not Soft, just Hard Delete
     @Override
     public void delete(Long id) {
+
+        if (!typeRepository.existsById(id)) {
+            throw new EntityNotFoundException(TYPE_NOT_FOUND_MESSAGE);
+        }
         typeRepository.deleteById(id);
     }
+
+
 }

@@ -22,6 +22,7 @@ public class StyleServiceImpl implements IStyleService {
     private StyleMapper styleMapper;
 
     private final String STYLE_NOT_FOUND_MESSAGE = "El estilo no existe";
+    private final String STYLES_NOT_EXIST = "No existen estilos";
 
     @Override
     public StyleDTO save(StyleDTO dto) {
@@ -44,14 +45,25 @@ public class StyleServiceImpl implements IStyleService {
 
     @Override
     public List<StyleDTO> getAll() {
+        if ((styleRepository.findAll()).isEmpty()) {
+            throw new EntityNotFoundException(STYLES_NOT_EXIST);
+        }
         List<Style> styleList = styleRepository.findAll();
         List<StyleDTO> styleDTOS = styleMapper.stylesEntity2Dto(styleList);
         return styleDTOS;
     }
 
     @Override
+    public Style getStyleById(Long id) {
+        if (!styleRepository.existsById(id)) {
+            throw new EntityNotFoundException(STYLE_NOT_FOUND_MESSAGE);
+        }
+        return styleRepository.getById(id);
+    }
+
+    @Override
     public StyleDTO getById(Long id) {
-        Style styleEntity = styleRepository.getById(id);
+        Style styleEntity = getStyleById(id);
         StyleDTO styleDTO = styleMapper.styleEntity2Dto(styleEntity);
         return styleDTO;
     }
@@ -59,6 +71,10 @@ public class StyleServiceImpl implements IStyleService {
     //Not Soft, just Hard Delete
     @Override
     public void delete(Long id) {
+        if (!styleRepository.existsById(id)) {
+            throw new EntityNotFoundException(STYLE_NOT_FOUND_MESSAGE);
+        }
         styleRepository.deleteById(id);
     }
+
 }

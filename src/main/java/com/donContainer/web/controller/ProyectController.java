@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("proyectos")
+@RequestMapping("proyects")
 public class ProyectController {
 
     @Autowired
@@ -21,14 +21,19 @@ public class ProyectController {
 
     @GetMapping
     public ResponseEntity<List<ProyectDTO>> getAll(@RequestBody ProyectDTO dto) {
-        List allProyects = proyectService.getAll();
+        List<ProyectDTO> allProyects = proyectService.getAll();
         return ResponseEntity.status(HttpStatus.OK).body(allProyects);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ProyectDTO> getById(@PathVariable Long id) {
+        ProyectDTO proyect = proyectService.getById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(proyect);
     }
 
     @PostMapping
     public ResponseEntity<ProyectDTO> save(@RequestBody ProyectDTO dto) {
         ProyectDTO proyectSaved = proyectService.save(dto);
-
         return ResponseEntity.status(HttpStatus.CREATED).body(proyectSaved);
     }
 

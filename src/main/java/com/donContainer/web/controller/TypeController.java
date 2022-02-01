@@ -41,8 +41,8 @@ public class TypeController {
         return ResponseEntity.status(HttpStatus.OK).body(typeUpdated);
     }
 
-    @DeleteMapping("/{id")
-    public ResponseEntity<Empty> delete(Long id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Empty> delete(@PathVariable Long id) {
         typeService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

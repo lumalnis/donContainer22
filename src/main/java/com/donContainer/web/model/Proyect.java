@@ -10,6 +10,8 @@ import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -33,6 +35,7 @@ public class Proyect {
 
     private String detalle;
 
+    //SECTION
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "section", insertable = false, updatable = false)
     private Section section;
@@ -40,30 +43,29 @@ public class Proyect {
     @Column(name = "section_id", nullable = false)
     private Long sectionId;
 
+    //STYLE
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "style", insertable = false, updatable = false)
+    private Style style;
+
+    @Column(name = "style_id", nullable = false)
+    private Long styleId;
+
+    //TYPE
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "type", insertable = false, updatable = false)
+    private Type type;
+
+    @Column(name = "type_id", nullable = false)
+    private Long typeId;
+
+    //SLIDE
+    @OneToMany(mappedBy = "proyectId", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Slide> slideList = new ArrayList<>();
+
     @Column(name = "timestamp")
     @CreationTimestamp
     private Timestamp timeStamp;
 
     private boolean deleted = Boolean.FALSE;
-
-//    //CONTAINER O MODULO?
-//    @Column(name = "TYPE", nullable = false)
-//    private String type;
-//
-//    //USO DEL CONTAINER O MODULO (Ej. Escolar)
-//    @Column(name = "STYLE", nullable = false)
-//    private String style;
-//
-//    //SECCION PAGINA
-//    @Column(name = "SECTION", nullable = false)
-//    private String section;
-
-//    @Column(name = "HEADER")
-//    private Slide header;
-
-    //@OneToMany(mappedBy = "proyectId", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    //private List<Slide> slideList = new ArrayList<>();
-
-    //@OneToMany(mappedBy = "proyectId", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    //private List<Link> linksList = new ArrayList<>();
 }

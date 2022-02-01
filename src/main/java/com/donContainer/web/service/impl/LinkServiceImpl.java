@@ -30,6 +30,8 @@ public class LinkServiceImpl implements ILinkService {
     private ProyectMapper proyectMapper;
 
     private final String LINK_NOT_FOUND_MESSAGE = "El link no existe";
+    private final String LINKS_NOT_EXIST = "No existen links";
+
 
     @Override
     public LinkDTO save(LinkDTO dto) {
@@ -40,12 +42,19 @@ public class LinkServiceImpl implements ILinkService {
     }
 
     public List<LinkDTO> findAll() {
+        if ((linkRepository.findAll()).isEmpty()) {
+            throw new EntityNotFoundException(LINKS_NOT_EXIST);
+        }
         List<Link> links = linkRepository.findAll();
         List<LinkDTO> dtos = linkMapper.linksEntity2Dto(links);
         return dtos;
     }
 
     public List<LinkDTO> getAllByProyect(Long proyectId) {
+        if ((linkRepository.findAll()).isEmpty()) {
+            throw new EntityNotFoundException(LINKS_NOT_EXIST);
+        }
+        //NO EXISTEN LINKS PARA ESE PROYECTO FALTA!!!
         List<Link> links = linkRepository.findAll();
         List<Link> linksByProyect = links.stream().filter(l -> l.getProyectId() == proyectId).collect(Collectors.toList());
         List<LinkDTO> linksResult = linkMapper.linksEntity2Dto(linksByProyect);
@@ -55,8 +64,7 @@ public class LinkServiceImpl implements ILinkService {
     public void removeFromProyect(Long proyectId) {
         List<Link> links = linkRepository.findAll();
         List<Link> linksByProyect = links.stream().filter(l -> l.getProyectId() == proyectId).collect(Collectors.toList());
-        for (Link link : linksByProyect
-        ) {
+        for (Link link : linksByProyect) {
             remove(link.getId());
         }
     }
@@ -74,6 +82,9 @@ public class LinkServiceImpl implements ILinkService {
 
     @Override
     public void remove(Long id) {
+        if (!linkRepository.existsById(id)) {
+            throw new EntityNotFoundException(LINK_NOT_FOUND_MESSAGE);
+        }
         linkRepository.deleteById(id);
     }
 }

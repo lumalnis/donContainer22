@@ -22,6 +22,7 @@ public class SectionServiceImpl implements ISectionService {
     private SectionMapper sectionMapper;
 
     private final String SECTION_NOT_FOUND_MESSAGE = "La sección no existe";
+    private final String SECTIONS_NOT_EXIST = "No existen secciones";
 
     @Override
     public SectionDTO save(SectionDTO dto) {
@@ -44,14 +45,25 @@ public class SectionServiceImpl implements ISectionService {
 
     @Override
     public List<SectionDTO> getAll() {
+        if ((sectionRepository.findAll()).isEmpty()) {
+            throw new EntityNotFoundException(SECTIONS_NOT_EXIST);
+        }
         List<Section> sectionList = sectionRepository.findAll();
         List<SectionDTO> sectionDTOS = sectionMapper.SectionsEntity2Dto(sectionList);
         return sectionDTOS;
     }
 
     @Override
+    public Section getSectionById(Long id) {
+        if (!sectionRepository.existsById(id)) {
+            throw new EntityNotFoundException(SECTION_NOT_FOUND_MESSAGE);
+        }
+        return sectionRepository.getById(id);
+    }
+
+    @Override
     public SectionDTO getById(Long id) {
-        Section sectionEntity = sectionRepository.getById(id);
+        Section sectionEntity = getSectionById(id);
         SectionDTO sectionDTO = sectionMapper.SectionEntity2Dto(sectionEntity);
         return sectionDTO;
     }
@@ -59,6 +71,11 @@ public class SectionServiceImpl implements ISectionService {
     //Not Soft, just Hard Delete
     @Override
     public void delete(Long id) {
+        if (!sectionRepository.existsById(id)) {
+            throw new EntityNotFoundException(SECTION_NOT_FOUND_MESSAGE);
+        }
         sectionRepository.deleteById(id);
     }
+
+
 }

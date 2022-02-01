@@ -41,8 +41,8 @@ public class SectionController {
         return ResponseEntity.status(HttpStatus.OK).body(sectionUpdated);
     }
 
-    @DeleteMapping("/{id")
-    public ResponseEntity<Empty> delete(Long id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Empty> delete(@PathVariable Long id) {
         sectionService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

@@ -24,4 +24,8 @@ public class ProyectDTO {
 
     private Long sectionId;
 
+    private Long styleId;
+
+    private Long typeId;
+
 }

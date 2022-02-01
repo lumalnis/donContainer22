@@ -27,12 +27,11 @@ public class Slide {
     @Column(name = "orden")
     private int order;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "proyect_id", insertable = false, updatable = false)
-    private Proyect proyect;
 
-    @Column(name = "proyect_id", nullable = false)
-    private Long proyectId;
+    @JoinColumn(name = "proyect_id")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    private Proyect proyectId;
+
 }
 
 
