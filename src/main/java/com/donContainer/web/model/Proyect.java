@@ -19,8 +19,8 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "proyect")
-@SQLDelete(sql = "UPDATE proyect SET deleted = true WHERE id=?")
-@Where(clause = "deleted=false")
+//@SQLDelete(sql = "UPDATE proyect SET deleted = true WHERE id=?")
+//@Where(clause = "deleted=false")
 public class Proyect {
 
     @Id
@@ -67,5 +67,5 @@ public class Proyect {
     @CreationTimestamp
     private Timestamp timeStamp;
 
-    private boolean deleted = Boolean.FALSE;
+    //private boolean deleted = Boolean.FALSE;
 }

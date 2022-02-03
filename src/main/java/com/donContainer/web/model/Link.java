@@ -16,8 +16,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "link")
-@SQLDelete(sql = "UPDATE link SET deleted = true WHERE id=?")
-@Where(clause = "deleted=false")
+//@SQLDelete(sql = "UPDATE link SET deleted = true WHERE id=?")
+//@Where(clause = "deleted=false")
 public class Link {
 
     @Id
@@ -33,6 +33,6 @@ public class Link {
     @Column(name = "proyect_id", nullable = false)
     private Long proyectId;
 
-    private boolean deleted = Boolean.FALSE;
+//    private boolean deleted = Boolean.FALSE;
 
 }

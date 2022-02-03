@@ -19,12 +19,4 @@ public class Type {
 
     //CONTAINER O MODULO?
     private String name;
-
-//    @ManyToOne(fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
-//    @JoinColumn (name = "proyecto_id", insertable = false, updatable = false)
-//    private Proyect proyecto;
-//
-//    @Column (name = "proyecto_id", nullable = false)
-//    private Long proyectoId;
-
 }
