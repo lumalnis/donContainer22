@@ -2,7 +2,7 @@ package com.donContainer.web.auth.controller;
 
 import com.donContainer.web.auth.dto.UserDtoRequest;
 import com.donContainer.web.auth.dto.UserDtoResponse;
-import com.donContainer.web.auth.service.IUserService;
+import com.donContainer.web.auth.service.UserDetailsServiceCustom;
 import com.fasterxml.jackson.databind.introspect.TypeResolutionContext.Empty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,7 +16,7 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private IUserService userService;
+    private UserDetailsServiceCustom userService;
 
     @GetMapping("/{id}")
     public ResponseEntity<UserDtoResponse> getUserById(@PathVariable Long id) {

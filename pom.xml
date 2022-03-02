@@ -12,7 +12,8 @@
     <artifactId>web</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>web</name>
-    <description>Web para la empresa Don Container, venta y alquiler de Modulos y Containers habitacionales</description>
+    <description>Web para la empresa Don Container, venta y alquiler de Modulos y Containers habitacionales
+    </description>
     <properties>
         <java.version>11</java.version>
     </properties>

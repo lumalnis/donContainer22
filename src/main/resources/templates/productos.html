@@ -87,6 +87,13 @@
                 </ul>
             </div>
             <div class="proyectos">
+
+                <tr th:each="proyect: ${allproyects}">
+                    <td th:text="${proyect.id}">
+                    <td th:text="${proyect.name}">
+                    <td th:text="${proyect.subtitulo}"></td>
+                </tr>
+
                 <div class="proyecto">
                     <img src="/img/IMG_20210603_183951.jpg" alt="">
                     <p class="bajada">Titulo</p>
